@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: arial;
+      }
+
+      textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid rgb(136, 136, 136);
+        border-radius: 10px;
+        resize: none;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 12px 20px; /*padding:12px 20px;
+                                top and bottom paddings are 12px
+                                left and right paddings are 20px*/
+        margin: 8px 0; /*jarak antar textbox*/
+        box-sizing: border-box; /*memberikan padding tp tetap didalam div*/
+        border: none; /*none = tanpa border*/
+        border-bottom: 2px solid rgb(100, 100, 100); /*memberikan ketevalan dan warna garis bawah */
+        background-color: #dfdfdf; /*memberikan warna background pada kotak*/
+        color: rgb(26, 26, 26); /*memberikan warna tulisan(ketikan)*/
+        outline: none; /**/
+      }
+
+      input [type="text"]:focus {
+        background-color: rgb(
+          187,
+          192,
+          194
+        ); /*memberikan warna background pada kotak yg difokuskan*/
+      }
+
+      select {
+        width: 100%; /*ukuran textarea 100% layar*/
+        padding: 16px 20px; /**/
+        border: none; /*menghilangkan border box select*/
+        border-bottom: 2px solid rgb(100, 100, 100);
+        background-color: rgb(187, 192, 194);
+      }
+      input[typr="button"],
+      input[type="submit"],
+      input[type="reset"] {
+        background-color: #969696; /*warna background tombol*/
+        border: none; /*hilangkan border tombol*/
+        color: white; /*warna tulisan*/
+        padding: 16px 32px; /**/
+        text-decoration: none; /*dekorasi tulisan pada tombol*/
+        margin: 4px 2px; /*margin atas bawah dan kiri kanan*/
+        cursor: pointer; /*ubah bentuk kursor*/
+      }
+    </style>
+
+    <link rel="stylesheet" href="stylepertama.css" />
+  </head>
+
+  <body>
+    <h1>Penjualan</h1>
+    <form action="tugas1tabelpenjualan.html" method="post" autocomplete="on">
+      <label for="kode">Kode:</label><br />
+      <input type="text" id="kode" placeholder="1234" /><br />
+      <label for="tgl">Tanggal:</label><br />
+      <input
+        type="text"
+        id="tgl"
+        placeholder="Tanggal"
+        disabled
+        value="00"
+      /><br />
+      <label for="konsumen">Konsumen:</label><br />
+      <input type="text" id="konsumen" placeholder="PT Langit" /><br />
+
+      <label for="karyawan">Karyawan:</label><br />
+      <select name="karyawan" onchange="ubah()" id="karyawan">
+        <option value="Agus" selected>Agus</option>
+        <option value="Oky">Oky</option>
+        <option value="Sulis">Sulis</option>
+      </select>
+
+      <label for="jabatan">Jabatan:</label><br />
+      <input
+        disabled
+        type="text"
+        id="jabatan"
+        placeholder="Jabatan..."
+        value="-"
+      /><br />
+
+      <div style="float: left">
+        <div style="margin-right: 50px; float: left; width: 250px">
+          <label for="kodebrg">Kode Brg</label>
+          <select name="textKodeBrg" onchange="kodeDipilih()" id="textKodeBrg">
+            <option value="pilih">Pilih Kode</option>
+            <option value="M001">M001</option>
+            <option value="M002">M002</option>
+            <option value="M003">M003</option>
+            <option value="M004">M004</option>
+            <option value="M005">M005</option>
+          </select>
+        </div>
+        <div style="margin-right: 50px; float: left; width: 250px">
+          <label for="kodebrg">Nama</label>
+          <input type="text" name="textNama" id="textNama" />
+        </div>
+        <div style="margin-right: 50px; float: left; width: 250px">
+          <label for="kodebrg">Satuan</label>
+          <input type="text" name="textSatuan" id="textSatuan" />
+        </div>
+        <div style="margin-right: 50px; float: left; width: 250px">
+          <label for="kodebrg">Harga</label>
+          <input type="text" name="textHarga" id="textHarga" />
+        </div>
+        <div style="margin-right: 50px; float: left; width: 250px">
+          <label for="kodebrg">Jumlah</label>
+          <input type="text" name="textJumlah" id="textJumlah" />
+        </div>
+        <div
+          style="
+            margin-right: 50px;
+            margin-top: 15px;
+            float: left;
+            width: 250px;
+          "
+        >
+          <button
+            type="button"
+            style="width: 100px; height: 50px"
+            onclick="tambah()"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+
+      <div style="clear: both"></div>
+
+      <br />
+
+      <!-- Table -->
+
+      <div style="overflow-x: auto">
+        <table id="table" style="width: 100%">
+          <tr bgcolor="#8f8f8f">
+            <th>Kode</th>
+            <th>Gol</th>
+            <th>Nama</th>
+            <th>Satuan</th>
+            <th>Harga</th>
+            <th>Jumlah</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+        </table>
+      </div>
+      <!-- End Table -->
+
+      <h1>Total : Rp.<span id="total">0</span></h1>
+      <input type="submit" name="update" id="update" value="Ubah" />
+      <input type="submit" name="cancel" id="cancel" value="Batal" />
+    </form>
+
+    <script>
+      const year = new Date().getFullYear().toString();
+      const month = new Date().getMonth() + 1;
+      const day = new Date().getDate().toString();
+      const hour = new Date().getHours().toString();
+      const minute = new Date().getMinutes().toString();
+      const second = new Date().getSeconds().toString();
+      console.log(year);
+      console.log(month);
+      console.log(day);
+      console.log(hour);
+      console.log(minute);
+      console.log(second);
+
+      // var kode = new Date(year, month, day, hour, minute, second);
+      var kode = year + month.toString() + day + hour + minute + second;
+      console.log(kode);
+      document.getElementById("kode").value = kode;
+
+      const date = year + "-" + month + "-" + day;
+      document.getElementById("tgl").value = date;
+      console.log(date);
+
+      // Jabatan
+      var karyawan = document.getElementById("karyawan");
+      var jabatan = document.getElementById("jabatan");
+
+      function ubah() {
+        console.log(karyawan.value);
+        if (karyawan.value == "Agus") {
+          jabatan.value = "Admin";
+        } else if (karyawan.value == "Oky") {
+          jabatan.value = "Operator";
+        } else if (karyawan.value == "Sulis") {
+          jabatan.value = "Supervisor";
+        }
+      }
+
+      // Kode dipilih
+
+      var textKodeBrg = document.getElementById("textKodeBrg");
+
+      function kodeDipilih() {
+        console.log(textKodeBrg.value);
+        if (textKodeBrg.value == "M001") {
+          textNama.value = "CPU";
+          textSatuan.value = "pcs";
+          textHarga.value = "2000";
+          textJumlah.value = "0";
+        } else if (textKodeBrg.value == "M002") {
+          textNama.value = "VGA";
+          textSatuan.value = "pcs";
+          textHarga.value = "2000";
+          textJumlah.value = "0";
+        } else if (textKodeBrg.value == "M003") {
+          textNama.value = "RAM";
+          textSatuan.value = "pcs";
+          textHarga.value = "1000";
+          textJumlah.value = "0";
+        } else if (textKodeBrg.value == "M004") {
+          textNama.value = "SAMSUNG";
+          textSatuan.value = "pcs";
+          textHarga.value = "4000";
+          textJumlah.value = "0";
+        } else if (textKodeBrg.value == "M005") {
+          textNama.value = "LENOVO";
+          textSatuan.value = "pcs";
+          textHarga.value = "7000";
+          textJumlah.value = "0";
+        }
+      }
+
+      function tambah() {
+        var table = document.getElementById("table");
+        var panjang = table.rows.length;
+        console.log(panjang);
+        var row = table.insertRow(panjang);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+        var cell8 = row.insertCell(7);
+        row.setAttribute("id", "id" + panjang);
+        cell1.innerHTML = document.getElementById("textKodeBrg").value;
+        cell2.innerHTML = "Komputer";
+        cell3.innerHTML = document.getElementById("textNama").value;
+        cell4.innerHTML = document.getElementById("textSatuan").value;
+        cell5.innerHTML = document.getElementById("textHarga").value;
+        cell6.innerHTML = document.getElementById("textJumlah").value;
+        cell7.innerHTML =
+          document.getElementById("textHarga").value *
+          document.getElementById("textJumlah").value;
+        cell8.innerHTML =
+          "<button type='button' onclick=\"deleteRow('id" +
+          panjang +
+          "')\">x</button>";
+        total();
+      }
+
+      function deleteRow(rowid) {
+        console.log(rowid);
+        var d = document.getElementById(rowid);
+        d.parentNode.removeChild(d);
+        total();
+      }
+
+      function total() {
+        var table = document.getElementById("table");
+        var panjang = table.rows.length;
+        var total = 0;
+        const arr = [];
+        for (let i = 1; i < panjang; i++) {
+          var x = table.rows[i].cells;
+          console.log("log : " + x[6].innerHTML);
+          arr.push(x[6].innerHTML);
+
+          console.log("s : " + arr);
+        }
+
+        arr.forEach((item) => {
+          total += +item;
+        });
+
+        console.log("total : " + total);
+        var pp = (document.getElementById("total").innerHTML = total);
+      }
+    </script>
+  </body>
+</html>

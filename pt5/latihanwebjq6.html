@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $.fn.myFunction = function () {
+          alert("menampilkan FUngsi");
+        };
+
+        $.fn.myFunction2 = function (x) {
+          alert("menampilkan Fungsi dengan parameter  : " + x);
+        };
+
+        $.fn.myFunction3 = function (x, y) {
+          alert("menampilkan Fungsi dengan parameter  : " + x + " " + y);
+        };
+
+        $(".call-btn1").click(function () {
+          $.fn.myFunction();
+        });
+        $(".call-btn2").click(function () {
+          $.fn.myFunction2("oke");
+        });
+        $(".call-btn3").click(function () {
+          $.fn.myFunction3("3", "5");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Akses Function</h1>
+    <button class="call-btn1">Click me</button>
+    <button class="call-btn2">Click me 2</button>
+    <button class="call-btn3">Click me 3</button>
+  </body>
+</html>

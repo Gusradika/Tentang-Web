@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+    <style>
+        input[type=text]{
+            width: 100%;
+            padding: 12px 20px; /*padding:12px 20px;
+                                top and bottom paddings are 12px
+                                left and right paddings are 20px*/
+            margin: 8px 0;      /*jarak antar textbox*/
+            box-sizing: border-box; /*memberikan padding tp tetap didalam div*/
+            border: none;           /*none = tanpa border*/
+            border-bottom: 2px solid rgb(100, 100, 100);   /*memberikan ketevalan dan warna garis bawah */
+            background-color: #dfdfdf;      /*memberikan warna background pada kotak*/
+           color: rgb(26, 26, 26);                    /*memberikan warna tulisan(ketikan)*/
+            outline: none;                    /**/
+        }
+
+        input [type=text]:focus{
+            background-color : rgb(187, 192, 194);   /*memberikan warna background pada kotak yg difokuskan*/
+        }
+
+        textarea{
+            width: 100%;            /*ukuran layar*/
+            height: 150px;          /*tinggi kotak textarea*/
+            padding: 0;     /*atas bawah kiri kanan*/
+            box-sizing: border-box; /**/
+            border: 2px solid rgb(99, 99, 99) ;    /*border textarea*/
+            border-radius: 10px;    /*lengkungan ujung textarea*/    
+                /**/
+        }
+        select{
+            width: 100%;            /*ukuran textarea 100% layar*/
+            padding: 16px 20px;     /**/
+            border : none;           /*menghilangkan border box select*/
+            border-bottom: 2px solid rgb(100, 100, 100); 
+             background-color : rgb(187, 192, 194); 
+        }
+        input[typr=button], input[type=submit], input[type=reset] {
+            background-color: #969696;  /*warna background tombol*/
+            border: none;                   /*hilangkan border tombol*/
+            color: white;                 /*warna tulisan*/
+            padding: 16px 32px;             /**/
+            text-decoration: none;          /*dekorasi tulisan pada tombol*/
+            margin: 4px 2px;               /*margin atas bawah dan kiri kanan*/
+            cursor: pointer;                /*ubah bentuk kursor*/
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Master Karyawan</h1>
+    <form action="tugas1tabelkaryawan.html" target="_blank" method="post" autocomplete="on">
+    <label for = "kode">Kode:</label><br>
+    <input type = "text" id="kode" placeholder="1234"><br>
+    <label for = "nama">Nama:</label><br>
+    <input type = "text" id="nama" placeholder="komputer"><br>
+    <label for = "jabatan">Jabatan:</label><br>
+    <select id = "model" name=" model">
+    <option value = "operator">Operator</option>
+    <option value = "xx">xx</option>
+    <option value = "vv">vv</option>
+    </select><br>
+    <label for = "Telp">Telp:</label><br>
+    <input type = "text" id="telp" placeholder="08241341"><br>
+    <label for = "Email">Email:</label><br>
+    <input type = "text" id="email" placeholder="adi@gmail.com"><br>
+    <label for = "password">Password:</label><br>
+    <input type = "text" id="password" placeholder="123"><br><br>
+
+    <textarea>
+        
+    </textarea>
+
+    <input type = "submit" name="update" id="update" value="Ubah" >
+    <input type = "submit" name="cancel" id="cancel" value="Batal" >
+</form>
+</body>
+</html>

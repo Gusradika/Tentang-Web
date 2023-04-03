@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      tr:hover {
+        background-color: #bbbbbb;
+      }
+      tr:nth-child(even) {
+        background-color: #ffe0a7;
+      }
+      tr:nth-child(even):hover {
+        background-color: #bbbbbb;
+      }
+      th {
+        background-color: #8f8f8f;
+        color: white;
+      }
+      /*---------------------------*/
+      .header {
+        background-color: #ff7728;
+        padding: 20px; /**/
+        text-align: center;
+        color: white;
+      }
+      body {
+        margin: 0;
+        background-color: #ffeac3;
+      }
+      .footer {
+        width: 100%;
+        background-color: #ff7728;
+        padding: 10px;
+        text-align: center;
+        color: white;
+        position: absolute; /**/
+        bottom: 0;
+      }
+      .topnav {
+        overflow: hidden;
+        background-color: rgb(255, 184, 78);
+      }
+      .topnav a {
+        float: left; /**/
+        display: block; /**/
+        color: white;
+        text-align: center;
+        padding: 14px 16px; /**/
+        text-decoration: none; /*hilangkan atribut teks*/
+      }
+      .topnav a:hover {
+        background-color: rgb(105, 105, 105);
+        color: rgb(255, 255, 255);
+      }
+      caption {
+        padding: 20px;
+      }
+      button {
+        background-color: #f5a613;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Master Karyawan</h1>
+    </div>
+    <div class="topnav">
+      <a href="tugas1tabelbarang.html">Barang</a>
+      <a href="tugas1tabelsupplier.html">Supplier</a>
+      <a href="tugas1tabelkaryawan.html">Karyawan</a>
+      <a href="tugas1tabelpenjualan.html">Penjualan</a>
+    </div>
+
+    <div style="overflow-x: auto">
+      <table>
+        <a href="tugas1karyawan.html"><button>+</button></a>
+        <caption>
+          Master Karyawan
+        </caption>
+        <tr bgcolor="blue">
+          <th>Kode</th>
+          <th>Nama</th>
+          <th>Jabatan</th>
+          <th>Telp</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Action</th>
+        </tr>
+
+        <tr>
+          <td>K001</td>
+          <td>Agus</td>
+          <td>admin</td>
+          <td>082241980044</td>
+          <td>agus@gmail.com</td>
+          <td>1234</td>
+          <td align="right">
+            <a href="tugas1karyawanupdate.html"><button>U</button></a
+            ><button>X</button>
+          </td>
+        </tr>
+        <tr>
+          <td>K002</td>
+          <td>Oky</td>
+          <td>Operator</td>
+          <td>082241980044</td>
+          <td>oky@gmail.com</td>
+          <td>1234</td>
+          <td align="right">
+            <a href="tugas1karyawanupdate.html"><button>U</button></a
+            ><button>X</button>
+          </td>
+        </tr>
+        <tr>
+          <td>K003</td>
+          <td>Sulis</td>
+          <td>Supervisor</td>
+          <td>082241980044</td>
+          <td>sulis@gmail.com</td>
+          <td>1234</td>
+          <td align="right">
+            <a href="tugas1karyawanupdate.html"><button>U</button></a
+            ><button>X</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="footer">
+      <p>Footer</p>
+    </div>
+  </body>
+</html>

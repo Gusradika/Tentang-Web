@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Javascript</h2>
+    <p>Hasil perjumlahan Variable</p>
+    <p id="x">Hasil</p>
+    <p id="y">Hasil</p>
+    <p id="z">Hasil</p>
+
+    <script>
+      var a = 2000;
+      var b = 3000;
+      var c = a + b;
+
+      document.getElementById("x").innerHTML =
+        "Hasil :" + a + " + " + b + " = " + c;
+
+      let aa = 20;
+      let bb = 30;
+      let cc = aa + bb;
+
+      document.getElementById("y").innerHTML =
+        "Hasil :" + aa + " + " + bb + " = " + cc;
+
+      const pi = 3.14;
+
+      document.getElementById("z").innerHTML = "Hasil : " + pi * 14;
+    </script>
+  </body>
+</html>

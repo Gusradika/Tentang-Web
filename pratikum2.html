@@ -1,0 +1,138 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+    <style>
+        input[type=text]{
+            width: 100%;
+            padding: 12px 20px; 
+            border: 2px solid rgb(221, 215, 215) ;                
+            margin: 13px 0;      
+            box-sizing: border-box;         
+            background-color: #f5f4f4;      
+            color: rgb(0, 0, 0);                 
+            outline: none;         
+        }
+
+        input[type=text]:focus{
+            background-color : lightblue;   
+        }
+
+        textarea{
+            width: 100%;    
+            margin: 13px 0;         
+            height: 150px;          
+            padding: 12px 20px;     
+            box-sizing: border-box; 
+            border: 2px solid rgb(221, 215, 215) ;    
+            border-radius: 10px;    
+            resize: none;           
+            background-color: #f5f4f4; 
+        }
+        textarea:focus{
+            background-color: #c9e0e6; 
+            border: 2px solid rgb(221, 215, 215) ;    
+    
+        }
+        select{
+            margin: 13px 0;  
+            width: 100%;            
+            padding: 16px 20px;     
+            border : none;           
+            border-bottom: 2px solid rgb(136, 135, 224); 
+            background-color: #90ceeb; 
+            border: 2px solid rgb(221, 215, 215) ;  
+            background-color: #f5f4f4; 
+        }
+        select:focus{
+            background-color: #c9e0e6; 
+            border: 2px solid rgb(221, 215, 215) ;    
+       
+        }
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: #330bc4; 
+            margin: 20px;              
+            color: white;         
+            padding: 16px 32px;          
+            text-decoration: none;         
+            margin: 4px 2px;              
+            cursor: pointer;     
+            margin-top: 40px;  
+            margin-bottom: 40px;  
+        }
+        
+        table{
+            border-collapse: collapse;
+            width:100%;  /*lebar layar 100%*/
+            padding-top: 25px;
+        }   
+        th, td {
+            padding: 8px;
+            text-align: left;   /*teks rata kiri*/
+            border-bottom: 1px solid #ddd; /*pengaturan garis bawah*/
+        }
+        th{
+            text-align: left;
+        }
+        tr:hover {background-color: rgb(11, 232, 66);}/*hover ->pengaturan tampilan jalan*/
+        tr:nth-child(even) {background-color: #ffffff;}
+        th {
+        background-color: #8f87de;
+        color: white;
+        }
+        /*---------------------------*/
+
+    </style>
+</head>
+
+<body>
+    <h1 style="font-family: roboto;">PENDAFTARAN</h1>
+    <form>
+    <label for = "nama">Nama:</label><br>
+    <input type = "text" id="nama" placeholder="Audrey" ><br>
+    <label for = "Email">Email:</label><br>
+    <input type = "text" id="email" placeholder="Audrey@gmail.com"><br>
+    
+    
+    <label for = "saudara">Jumlah Saudara :</label><br>
+    <select id = "saudara" name="saudara">
+        <option value = "1">1</option>
+        <option value = "2">2</option>
+        <option value = "3">3</option>
+    </select><br>
+
+    <label for = "keterangan">Keterangan :</label> <br>
+    <textarea name = "keterangan" rows = "10" cols="30" placeholder="123"></textarea><br><br>
+
+    <input type = "submit" name="save" id="save" value="Simpan" style=" background-color: rgb(15, 226, 61);">
+    <input type = "submit" name="cancel" id="cancel" value="Batal" style=" background-color: rgb(241, 238, 17); color: black;">
+
+    <div style="overflow-x:auto;"> 
+        <table>
+            <a href="tugas1karyawan.html"><button> + </button></a>
+
+            <tr>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Jumlah Saudara</th>
+                <th>Alamat</th>
+            </tr>
+
+            <tr>
+                <td>Audrey</td>
+                <td>Audrey@gmail.com</td>
+                <td>2</td>
+                <td>Kenjeran</td>
+            </tr>
+            <tr>
+                <td>Agus</td>
+                <td>agus@gmail.com</td>
+                <td>1</td>
+                <td>Kedungbaruk</td>
+            </tr>
+        </table>
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="isi">Isi</p>
+    <p id="x">Ubah</p>
+    <button type="button" id="btn1" onclick="ubah()">
+      Klik ubah with function
+    </button>
+    <button type="button" id="btn">Klik ubah</button>
+
+    <script>
+      var btn = document.getElementById("btn");
+
+      function ubah() {
+        document.getElementById("x").innerHTML =
+          "Ubah dengan Event menggunakan Function";
+      }
+
+      btn.addEventListener("click", function () {
+        document.getElementById("isi").innerHTML = "Ubah dengan Event";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Javascript HTML DOM</h2>
+    <p id="isi">Hello JS id</p>
+    <h4>Hello JS</h4>
+    <p class="test">Hello JS Class</p>
+    <p class="test1">Hello JS Class Selector</p>
+
+    <script>
+      console.log(document.getElementById("isi"));
+      console.log(document.getElementByTagName("h4"));
+      console.log(document.getElementByClassName("test"));
+      console.log(document.querySelectorAll("p.test1"));
+    </script>
+  </body>
+</html>
