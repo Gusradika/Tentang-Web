@@ -1,109 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-     <style>
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      th,
-      td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
-      tr:hover {
-        background-color: #bbbbbb;
-      }
-      tr:nth-child(even) {
-        background-color: #ffe0a7;
-      }
-      tr:nth-child(even):hover {
-        background-color: #bbbbbb;
-      }
-      th {
-        background-color: #8f8f8f;
-        color: white;
-      }
-      /*---------------------------*/
-      .header {
-        background-color: #ff7728;
-        padding: 20px; /**/
-        text-align: center;
-        color: white;
-      }
-      body {
-        margin: 0;
-        background-color: #ffeac3;
-      }
-      .footer {
-        width: 100%;
-        background-color: #ff7728;
-        padding: 10px;
-        text-align: center;
-        color: white;
-        position: absolute; /**/
-        bottom: 0;
-      }
-      .topnav {
-        overflow: hidden;
-        background-color: rgb(255, 184, 78);
-      }
-      .topnav a {
-        float: left; /**/
-        display: block; /**/
-        color: white;
-        text-align: center;
-        padding: 14px 16px; /**/
-        text-decoration: none; /*hilangkan atribut teks*/
-      }
-      .topnav a:hover {
-        background-color: rgb(105, 105, 105);
-        color: rgb(255, 255, 255);
-      }
-      caption {
-        padding: 20px;
-      }
-      button {
-        background-color: #f5a613;
-        border: none;
-        color: white;
-        padding: 16px 32px;
-        text-decoration: none;
-        margin: 4px 2px;
-        cursor: pointer;
-      }
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #bbbbbb;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ffe0a7;
+        }
+
+        tr:nth-child(even):hover {
+            background-color: #bbbbbb;
+        }
+
+        th {
+            background-color: #8f8f8f;
+            color: white;
+        }
+
+        /*---------------------------*/
+        .header {
+            background-color: #ff7728;
+            padding: 20px;
+            /**/
+            text-align: center;
+            color: white;
+        }
+
+        body {
+            margin: 0;
+            background-color: #ffeac3;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #ff7728;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            position: absolute;
+            /**/
+            bottom: 0;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: rgb(255, 184, 78);
+        }
+
+        .topnav a {
+            float: left;
+            /**/
+            display: block;
+            /**/
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            /**/
+            text-decoration: none;
+            /*hilangkan atribut teks*/
+        }
+
+        .topnav a:hover {
+            background-color: rgb(105, 105, 105);
+            color: rgb(255, 255, 255);
+        }
+
+        caption {
+            padding: 20px;
+        }
+
+        button {
+            background-color: #f5a613;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
+    <div class="header">
+        <h1>Master Supplier</h1>
+    </div>
+    <div class="topnav">
+        <a href="tugas1tabelbarang.html">Barang</a>
+        <a href="tugas1tabelsupplier.html">Supplier</a>
+        <a href="tugas1tabelkaryawan.html">Karyawan</a>
+        <a href="tugas1tabelpenjualan.html">Penjualan</a>
+        <a href="pembelian.html">Pembelian</a>
+    </div>
     <h1>Pembelian</h1>
     <!--cara buat button-->
     <button type="button" class="rekap">rekap</button>
     <button type="button" class="detail">detail</button>
     <button type="button" class="insert">+</button>
     <div id="kotak"></div>
-    
+
     <script>
         //. untuk class # untuk id//
-        $(document).ready(function(){
+
+        var allKode = document.querySelectorAll(".kode");
+        var kode = [];
+        allKode.forEach(function () {
+            kode.push(allKode.innerHTML());
+        });
+
+        $(document).ready(function () {
+            $(".kode").each(function () {
+                $(".kode").innerHTML
+            })
+
             $("#kotak").load("pembelian1.html");
-        $(".rekap").click(function(){
-            console.log("hello");
-            $("#kotak").load("pembelian1.html");
+            $(".rekap").click(function () {
+                console.log("hello");
+                $("#kotak").load("pembelian1.html");
+            });
+            $(".detail").click(function () {
+                $("#kotak").load("pembelian2.html");
+            })
+            $(".insert").click(function () {
+                $("#kotak").load("pembelian3.html");
+            });
         });
-        $(".detail").click(function(){
-            $("#kotak").load("pembelian2.html");
-        })
-        $(".insert").click(function(){
-            $("#kotak").load("pembelian3.html");
-        });
-        });
-        
     </script>
 </body>
+
 </html>
