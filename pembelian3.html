@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+  <title>Document</title>
+  <style>
+    /*menghilangkan opsi null*/
+    #Supplier option:first-child {
+      display: none;
+    }
+
+    #Karyawan option:first-child {
+      display: none;
+    }
+
+    #kodeb option:first-child {
+      display: none;
+    }
+
+    body {
+      font-family: arial;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid rgb(136, 136, 136);
+      border-radius: 10px;
+      resize: none;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 20px;
+      /*padding:12px 20px;
+                                top and bottom paddings are 12px
+                                left and right paddings are 20px*/
+      margin: 8px 0;
+      /*jarak antar textbox*/
+      box-sizing: border-box;
+      /*memberikan padding tp tetap didalam div*/
+      border: none;
+      /*none = tanpa border*/
+      border-bottom: 2px solid rgb(100, 100, 100);
+      /*memberikan ketevalan dan warna garis bawah */
+      background-color: #dfdfdf;
+      /*memberikan warna background pada kotak*/
+      color: rgb(26, 26, 26);
+      /*memberikan warna tulisan(ketikan)*/
+      outline: none;
+      /**/
+    }
+
+    input [type="text"]:focus {
+      background-color: rgb(187,
+          192,
+          194);
+      /*memberikan warna background pada kotak yg difokuskan*/
+    }
+
+    select {
+      width: 100%;
+      /*ukuran textarea 100% layar*/
+      padding: 16px 20px;
+      /**/
+      border: none;
+      /*menghilangkan border box select*/
+      border-bottom: 2px solid rgb(100, 100, 100);
+      background-color: rgb(187, 192, 194);
+    }
+
+    input[typr="button"],
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: #969696;
+      /*warna background tombol*/
+      border: none;
+      /*hilangkan border tombol*/
+      color: white;
+      /*warna tulisan*/
+      padding: 16px 32px;
+      /**/
+      text-decoration: none;
+      /*dekorasi tulisan pada tombol*/
+      margin: 4px 2px;
+      /*margin atas bawah dan kiri kanan*/
+      cursor: pointer;
+      /*ubah bentuk kursor*/
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <div style="float: left;">
+      <div style="float: left; margin-right: 150px;">
+        <label for="kode">kode</label>
+        <input type="text" id="kode" class="kode" readonly>
+      </div>
+
+      <div style="float: left;">
+        <label for="Karyawan" id="lblk">karyawan</label>
+        <select name="Karyawan" id="Karyawan">
+          <option value="" selected></option>
+          <option value="Sulis">Sulis</option>
+          <option value="Oky">Oky</option>
+          <option value="Agus">Agus</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="clear: both;"></div>
+
+    <div style="float: left;">
+      <div style="float: left; margin-right: 130px;">
+        <label for="tgl">tanggal</label>
+        <input type="text" id="tgl" class="tgl" readonly>
+      </div>
+      <div style="float: left;">
+        <label for="jabatan" id="lblj">jabatan</label>
+        <input type="text" id="Jabatan" class="Jabatan" readonly>
+      </div>
+    </div>
+
+    <div style="clear: both;"></div>
+
+    <br><br>
+    <label for="supp">Supplier</label>
+    <select name="Supplier" id="Supplier">
+      <option value="" selected></option>
+      <option value="PT.Aksara">PT.Aksara</option>
+      <option value="PT.Tulis">PT.Tulis</option>
+      <option value="PT.Marwana">PT.Marwana</option>
+    </select>
+
+    <br><br>
+    <label for="telp">Telp</label>
+    <input type="text" name="telp" id="Telp" readonly>
+
+    <br><br>
+    <label for="alamat">alamat</label>
+    <input type="text" name="Alamat" id="Alamat" readonly>
+    <br><br>
+    <table>
+      <thead>
+        <tr>
+          <th>kode</th>
+          <th>nama</th>
+          <th>satuan</th>
+          <th>harga</th>
+          <th>jumlah</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><select name="Kode" id="kodeb">
+              <option value="" selected></option>
+              <option value="m001">m001</option>
+              <option value="m002">m002</option>
+              <option value="m003">m003</option>
+            </select>
+          </td>
+          <td><input type="text" name="nama" id="nama"></td>
+          <td><input type="text" name="satuan" id="satuan"></td>
+          <td><input type="text" name="harga" id="harga"></td>
+          <td><input type="text" name="jumlah" id="jumlah"></td>
+          <td><button type="button" id="save">save</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>kode</th>
+        <th>nama</th>
+        <th>satuan</th>
+        <th>harga</th>
+        <th>jumlah</th>
+        <th>total harga</th>
+        <th>action</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+  </table>
+  <h1>Total :
+    <span id="total">0
+    </span></h1>
+
+  <script>
+    $(document).ready(function () {
+      var total = 0;
+      //ambil tanngal//
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var hour = date.getHours();
+      var minute = date.getMinutes();
+      var second = date.getSeconds();
+      //var kode dan tanggal//
+      $('#kode').val(year + "" + month + "" + day + "" + hour + "" + minute + "" + second);
+      $('#tgl').val(day + "-" + month + "-" + year);
+      console.log(day);
+      //if else supp untuk munculkan telp dan alamat//
+      $("#Supplier").change(function () {
+        if ($("#Supplier").val() == "PT.Aksara") {
+          $("#Telp").val("08123456789");
+          $("#Alamat").val("Sidoarjo");
+        } else if ($("#Supplier").val() == "PT.Tulis") {
+          $("#Telp").val("08198765432");
+          $("#Alamat").val("Surabaya");
+        } else if ($("#Supplier").val() == "PT.Marwana") {
+          $("#Telp").val("08167382647");
+          $("#Alamat").val("Malang");
+        }
+      });
+      //if else karyawan untuk munculkan jabatan//
+      $("#Karyawan").change(function () {
+        if ($("#Karyawan").val() == "Sulis") {
+          $("#Jabatan").val("Operator");
+        } else if ($("#Karyawan").val() == "Oky") {
+          $("#Jabatan").val("Admin");
+        } else if ($("#Karyawan").val() == "Agus") {
+          $("#Jabatan").val("Manager");
+        }
+      });
+      //if else kode barang untuk munculkan nama satuan harga//
+      $("#kodeb").change(function () {
+        if ($("#kodeb").val() == "m001") {
+          $("#nama").val("cpu");
+          $("#satuan").val("pcs");
+          $("#harga").val("200");
+        } else if ($("#kodeb").val() == "m002") {
+          $("#nama").val("vga");
+          $("#satuan").val("pcs");
+          $("#harga").val("400");
+        } else if ($("#kodeb").val() == "m003") {
+          $("#nama").val("ram");
+          $("#satuan").val("pcs");
+          $("#harga").val("300");
+        }
+      });
+      //logika tombol simpan untuk masukkan ke table//
+      $("#save").click(function () {
+        total = 0;
+        var panjang = $('tbody tr').length;
+        var kode = $('#kodeb').val();
+        var nama = $('#nama').val();
+        var satuan = $('#satuan').val();
+        var harga = $('#harga').val();
+        var jumlah = $('#jumlah').val();
+        var totalhrg = harga * jumlah;
+        $('#tbody').append("<tr><td>" + kode + "</td><td>" + nama + "</td><td>" + satuan + "</td><td>" + harga +
+          "</td><td>" + jumlah + "</td><td>" + totalhrg + "</td>><td><button id=\"id" + panjang +
+          "\" class = \"remove\">x</td></tr>")
+        console.log(panjang);
+        $('#tbody tr').each(function () {
+          var currentRow = $(this);
+          total = total + Number(currentRow.find("td:eq(5)").text());
+        });
+        $("#total").text(total);
+        $.fn.clearform();
+      });
+      //menghilangkan value//
+      $.fn.clearform = function () {
+        $('#kodeb').val("");
+        $('#nama').val("")
+        $('#satuan').val("");
+        $('#harga').val("");
+        $('#jumlah').val("");
+        console.log("a");
+      };
+      //logika tombol untuk hapus baris//
+      $("tbody").on('click', '.remove', function () {
+        total = 0;
+        var id = $(this).attr('id');
+        console.log(id);
+        $(this).closest('tr').remove();
+        $('#tbody tr').each(function () {
+          var currentRow = $(this);
+          total = total + Number(currentRow.find("td:eq(5)").text());
+        });
+        $("#total").text(total);
+      });
+    });
+    //membuat selected box tanpa mengisi di html dan ini dapat membuat selected box null tapi tidak ada di dropdown tanpa css//
+    /*
+      // Mendapatkan referensi elemen select
+      var selectBox = $("#selectBox");
+
+      // Menambahkan opsi ke elemen select
+      selectBox.append($("<option>").attr("value", "option1").text("Option 1"));
+      selectBox.append($("<option>").attr("value", "option2").text("Option 2"));
+      selectBox.append($("<option>").attr("value", "option3").text("Option 3"));
+
+      // Menetapkan nilai default
+      selectBox.val("option1");
+    });
+    */
+  </script>
+</body>
+
+</html>
